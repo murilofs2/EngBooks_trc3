@@ -1,0 +1,160 @@
+openapi: "3.0.1"
+info:
+  title: Atividade 01 - Tópicos em Redes de Comunicação 03
+  description: API de cadastro de disciplinas desenvolvida para a Atividade 01 de TRC3, através das plataformas NodeJS / MongoDB e relacionados.
+  version: v1
+servers:
+  - url: http://localhost:3000
+paths:
+    /disciplinas:
+        summary: Cadastro e listagem de disciplinas.
+        get:
+          summary: Listagem de disciplinas cadastradas.
+          responses:
+            '200':
+              description: Listagem completa de disciplinas.
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Disciplina'
+            '404':
+              description: Nenhuma disciplina cadastrada.
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      properties:
+                        message:
+                          type: string
+        post:
+          summary: Cria nova disciplina.
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Disciplina'
+          responses:
+            '200':
+              description: Disciplina já existe (já foi cadastrada).
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      properties:
+                        error:
+                          type: string
+            '201':
+              description: Nova disciplina adicionada ao banco de dados.
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Disciplina'
+            '400':
+              description: Parâmetros do BODY ausentes.
+              content:
+                application/json:
+                  schema:
+                    type: array
+                    items:
+                      properties:
+                        error:
+                          type: string
+    /disciplinas/{codigo}:
+      summary: Atualização e apagamento de disciplinas.
+      parameters:
+        - in: path
+          name: codigo
+          schema:
+            type: integer
+          required: true
+          description: Código da disciplina avaliada.
+      put:
+        summary: Atualização dos dados de disciplinas.
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                properties:
+                  nome:
+                      type: string
+                  professor:
+                      type: string
+                  departamento:
+                      type: string
+        responses:
+          '200':
+            description: Disciplina já existe (já foi cadastrada).
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Disciplina'
+          '404':
+            description: Disciplina não foi encontrada.
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    properties:
+                      error:
+                        type: string
+      delete:
+        summary: Apaga uma disciplina cadastrada.
+        parameters:
+          - in: path
+            name: codigo
+            schema:
+              type: integer
+            required: true
+            description: Código da disciplina avaliada.
+        responses:
+          '200':
+            description: Disciplina foi apagada do banco de dados.
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    properties:
+                      message:
+                        type: string
+          '404':
+            description: Disciplina não foi encontrada.
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    properties:
+                      error:
+                        type: string
+
+components:
+    schemas:
+        Disciplina:
+            properties:
+                código:
+                    type: string
+                nome:
+                    type: string
+                professor:
+                    type: string
+                departamento:
+                    type: string
+            required:
+                - código
+                - nome
+                - professor
+                - departamento
+            type: object
+    
