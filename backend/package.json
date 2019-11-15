@@ -9,7 +9,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.6.11",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "stopword": "^0.3.4",
+    "text-cleaner": "^1.0.0"
   },
   "devDependencies": {
     "sucrase": "^3.10.1"
