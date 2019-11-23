@@ -4,10 +4,6 @@ import conn from '../../config/dbConnection';
 mongoose.connect(conn.url);
 
 const LivrosSchema = new mongoose.Schema ({
-  codigo: {
-    type: Number,
-    required: true,
-  },
   titulo: {
     type: String,
     required: true,
@@ -15,12 +11,18 @@ const LivrosSchema = new mongoose.Schema ({
   titulolimpo: {
     type: String,
   },
+  titulotags: {
+    type: Array,
+  },
   autor: {
     type: String,
     required: true,
   },
   autorlimpo: {
     type: String,
+  },
+  autortags: {
+    type: Array,
   },
   assunto: {
     type: String,
