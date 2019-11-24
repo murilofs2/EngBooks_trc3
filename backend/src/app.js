@@ -1,6 +1,6 @@
 import express from 'express';
 import routes from './routes';
-
+import {Authenticate} from './app/controllers/Auth'
 class App {
   constructor () {
     this.server = express();
@@ -10,6 +10,7 @@ class App {
 
   middlewares () {
     this.server.use(express.json());
+    this.server.use(Authenticate);
   }
 
   routes () {

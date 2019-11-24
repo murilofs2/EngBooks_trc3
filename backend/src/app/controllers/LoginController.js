@@ -1,6 +1,7 @@
 import Login from '../models/Login';
 import bcrypt from 'bcrypt';
-
+import * as jwt from 'jsonwebtoken'
+import {KEY} from '../../../common/security'
 class LoginController {
   
   //GET
@@ -11,7 +12,9 @@ class LoginController {
     if (!usernameCheck) return res.status(404).json({ "error": "Usuário não está cadastrado." });
 
     await bcrypt.compare(loginInfo.password,usernameCheck.password).then((check) => {
-      if (check) return res.status(200).json({ "message": "Login válido." });
+      if (check){
+        const token = jwt.sign({sub: loginInfo.username, iss:'engbooks'}, KEY)
+        return res.status(200).json({name: loginInfo.username, accessToken: token});} 
       else return res.status(404).json({ "error": "Senha inválida." });
     }); 
   }
