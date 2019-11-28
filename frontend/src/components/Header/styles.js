@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { AddCircle } from 'styled-icons/material'
 
 /*
 verde: #1AE26A
@@ -17,9 +16,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 `;
 
-export const AddCircle = styled(AddCircle)`
-    color: red;
-`;
 
 export const Navbar = styled.div`
     padding: 20px;
@@ -59,9 +55,9 @@ export const Button = styled.button`
     padding: 14px 10px;
     width: 220px;
     border-radius: 24px;
-    background: #0E0139 
+    background: #0E0139; 
     transition: 0.25s;
     &:hover {
-        width: 300px;
+        width: 250px;
     }
 `;

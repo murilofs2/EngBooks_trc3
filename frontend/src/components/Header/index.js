@@ -11,7 +11,7 @@ class Header extends Component{
                 <Navbar>
                         <Link to={"/"}>
                             <Logo>
-                                <AddCircle />                             <img src={ logo } alt="logologo"/>
+                               <img src={ logo } alt="logologo"/>
                             </Logo>
                         </Link>
                         <Ul>
