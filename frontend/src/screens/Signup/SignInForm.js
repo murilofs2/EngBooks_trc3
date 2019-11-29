@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../Login/App.css";
-
+import axios from 'axios';
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
@@ -53,6 +53,19 @@ class SignIn extends Component {
         Email: ${this.state.email}
         Password: ${this.state.password}
       `);
+
+      const user = {
+        username: this.state.username,
+        email: this.state.email,
+        password: this.state.password
+      };
+  
+      axios.post(`http://engbooks.herokuapp.com/cadastro`, { user })
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+        })
+
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
