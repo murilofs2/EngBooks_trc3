@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import BookDefault from "../../assets/livros.png";
+import { Link } from 'react-router-dom';
+
 
 class HomeScreen extends Component {
   
@@ -39,6 +41,14 @@ class HomeScreen extends Component {
                 <div class="search-box" >
                   <input type= "text" class=" search-txt" placeholder ="Pesquisar Titulo, Autor" onChange={e => this.setState({ pesquisaValor: e.target.value })}/>
                   <button class="search-btn" onClick={() => this.setState({ pesquisaFlag: true })}>Pesquisar</button>  
+                  <Link to ={"/deletar"}>
+                    <button class="btn"> Deletar</button>  
+                  
+                  </Link>
+                  <Link to ={"/atualizar"}>
+                    <button class="btn"> Atualizar</button>  
+                  
+                  </Link>
                   {this.state.pesquisaFlag && this.GET_request()}
                   <div style={{"display": "flex", "flexDirection": "row", "marginTop":"50px"}}>
                     {!this.state.pesquisaFlag && this.state.livros.map((livro) => {

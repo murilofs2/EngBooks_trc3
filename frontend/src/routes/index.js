@@ -5,6 +5,8 @@ import LoginScreen from '../screens/Login'
 import SignupScreen from '../screens/Signup'
 import Header from '../components/Header';
 import CadastrarLivro from '../screens/AddBook.js'
+import AtualizarScreen from '../screens/Atualizar'
+import DeletarScreen from '../screens/Deletar'
 
 
 const AppRouter = () => (
@@ -16,6 +18,8 @@ const AppRouter = () => (
                 <Route path="/login" component={ LoginScreen } />
                 <Route path="/signup" component={ SignupScreen } />
                 <Route path="/addBook" component={ CadastrarLivro } />
+                <Route path="/atualizar" component={ AtualizarScreen } />
+                <Route path="/deletar" component={ DeletarScreen } />
             </Switch>
         </div>
     </Router>
