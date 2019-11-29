@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../Login/App.css";
 import axios from 'axios';
+
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
@@ -26,8 +27,6 @@ class SignIn extends Component {
     super(props);
 
     this.state = {
-      firstName: null,
-      lastName: null,
       username: null,
       email: null,
       password: null,
@@ -41,33 +40,26 @@ class SignIn extends Component {
     };
   }
 
+  POST_request() {
+    axios.post('https://engbooks.herokuapp.com/cadastro', {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+    }).then(response => {
+      this.setState({ message: response.data.message });
+      console.log(this.state.message);
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
   handleSubmit = e => {
     e.preventDefault();
 
     if (formValid(this.state)) {
-      console.log(`
-        --SUBMITTING--
-        First Name: ${this.state.firstName}
-        Last Name: ${this.state.lastName}
-        username: ${this.state.username}
-        Email: ${this.state.email}
-        Password: ${this.state.password}
-      `);
-
-      const user = {
-        username: this.state.username,
-        email: this.state.email,
-        password: this.state.password
-      };
-  
-      axios.post(`http://engbooks.herokuapp.com/cadastro`, { user })
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
-        })
-
+      this.POST_request();
     } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+      console.error("Formulário Inválido.");
     }
   };
 
@@ -77,26 +69,18 @@ class SignIn extends Component {
     let formErrors = { ...this.state.formErrors };
 
     switch (name) {
-      case "firstName":
-        formErrors.firstName =
-          value.length < 3 ? "Necessários no mínimo 3 caracteres" : "";
-        break;
-      case "lastName":
-        formErrors.lastName =
-          value.length < 3 ? "Necessários no mínimo 3 caracteres" : "";
-        break;
         case "username":
         formErrors.username =
-          value.length < 3 ? "Necessários no mínimo 3 caracteres" : "";
+          value.length < 3 ? "minimum 3 characaters required" : "";
         break;
       case "email":
         formErrors.email = emailRegex.test(value)
           ? ""
-          : "email inválido";
+          : "invalid email address";
         break;
       case "password":
         formErrors.password =
-          value.length < 6 ? "Necessários no mínimo 6 caracteres" : "";
+          value.length < 6 ? "minimum 6 characaters required" : "";
         break;
       default:
         break;
@@ -113,7 +97,7 @@ class SignIn extends Component {
         <div className="form-wrapper">
           <h1>Create Account</h1>
           <form onSubmit={this.handleSubmit} noValidate>
-            <div className="firstName">
+            {/* <div className="firstName">
               <label htmlFor="firstName">Nome</label>
               <input
                 className={formErrors.firstName.length > 0 ? "error" : null}
@@ -140,7 +124,7 @@ class SignIn extends Component {
               {formErrors.lastName.length > 0 && (
                 <span className="errorMessage">{formErrors.lastName}</span>
               )}
-            </div>
+            </div> */}
             <div className="username">
               <label htmlFor="username">Nome do usuário</label>
               <input
@@ -185,7 +169,7 @@ class SignIn extends Component {
             </div>
             <div className="createAccount">
               <button type="submit">Criar conta</button>
-              <small>Já tenho conta?</small>
+              <small>{this.state.message}</small>
             </div>
           </form>
         </div>

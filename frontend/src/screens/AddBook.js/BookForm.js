@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Login/App.css";
+import axios from 'axios';
 
 /*
 const emailRegex = RegExp(
@@ -40,25 +41,35 @@ class Books extends Component {
         ano: "",
         idioma: "",
         quantidade: ""
-      }
+      },
+      message: []
     };
   }
+
+  POST_request() {
+    axios.post('https://engbooks.herokuapp.com/livros', {
+      titulo: this.state.titulo,
+      autor: this.state.autor,
+      assunto: this.state.assunto,
+      idioma: this.state.idioma,
+      ano: this.state.ano,
+      quantidade: this.state.quantidade
+    }).then(response => {
+      this.setState({ message: response.data.message });
+      console.log(this.state.message);
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
 
   handleSubmit = e => {
     e.preventDefault();
 
     if (formValid(this.state)) {
-      console.log(`
-        --SUBMITTING--
-        titulo: ${this.state.titulo}
-        autor: ${this.state.autor}
-        assunto: ${this.state.assunto}
-        ano: ${this.state.ano}
-        idioma: ${this.state.idioma}
-        quantidade: ${this.state.quantidade}
-      `);
+      this.POST_request();
     } else {
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+      console.error("Formulário Inválido.");
     }
   };
 
@@ -191,6 +202,7 @@ class Books extends Component {
               
             </div>
           </form>
+          <div style={{"textAlign": "center"}}>Mensagem recebida: {this.state.message}</div>
         </div>
       </div>
     );
