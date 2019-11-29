@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/EngBooks_trc3/static/css/main.e43ffafb.chunk.css",
+    "main.js": "/EngBooks_trc3/static/js/main.04474216.chunk.js",
+    "main.js.map": "/EngBooks_trc3/static/js/main.04474216.chunk.js.map",
+    "runtime-main.js": "/EngBooks_trc3/static/js/runtime-main.60f2524e.js",
+    "runtime-main.js.map": "/EngBooks_trc3/static/js/runtime-main.60f2524e.js.map",
+    "static/js/2.c0205fd9.chunk.js": "/EngBooks_trc3/static/js/2.c0205fd9.chunk.js",
+    "static/js/2.c0205fd9.chunk.js.map": "/EngBooks_trc3/static/js/2.c0205fd9.chunk.js.map",
+    "index.html": "/EngBooks_trc3/index.html",
+    "precache-manifest.5a7b06476f0e70883ea5a9968d0f59da.js": "/EngBooks_trc3/precache-manifest.5a7b06476f0e70883ea5a9968d0f59da.js",
+    "service-worker.js": "/EngBooks_trc3/service-worker.js",
+    "static/css/main.e43ffafb.chunk.css.map": "/EngBooks_trc3/static/css/main.e43ffafb.chunk.css.map",
+    "static/media/engbooks.png": "/EngBooks_trc3/static/media/engbooks.47052b22.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.60f2524e.js",
+    "static/js/2.c0205fd9.chunk.js",
+    "static/css/main.e43ffafb.chunk.css",
+    "static/js/main.04474216.chunk.js"
+  ]
+}
