@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "../Login/App.css";
 
+/*
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
-
+*/
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
 
@@ -97,7 +98,7 @@ class Books extends Component {
     const { formErrors } = this.state;
 
     return (
-      <div className="wrapper">
+      <div className="wrapper-book">
         <div className="form-wrapper">
           <h1>Cadastrar Livros</h1>
           <form onSubmit={this.handleSubmit} noValidate>
