@@ -15,11 +15,14 @@ class Header extends Component{
                             </Logo>
                         </Link>
                         <Ul>
+                            <Link to={"/login"}>
+                                <Button>Entrar</Button>
+                            </Link>
                             <Link to={"/signup"}>
                                 <Button>Inscreva-se</Button>
                             </Link>
-                            <Link to={"/login"}>
-                                <Button>Entrar</Button>
+                            <Link to={"/addBook"}>
+                                <Button>Adicionar Livro</Button>
                             </Link>
                         </Ul>
                 </Navbar>

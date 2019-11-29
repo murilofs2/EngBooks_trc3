@@ -27,7 +27,7 @@ export const Navbar = styled.div`
 
 
 export const Logo = styled.div`
-    width: 50%;
+    width: 30%;
     float: left;
     align-items: center;
 
@@ -53,7 +53,7 @@ export const Button = styled.button`
     margin-left: 50px;
     font-size: 15px;
     padding: 14px 10px;
-    width: 220px;
+    width: 200px;
     border-radius: 24px;
     background: #0E0139; 
     transition: 0.25s;

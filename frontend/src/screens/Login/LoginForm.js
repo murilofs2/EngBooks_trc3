@@ -60,7 +60,7 @@ class Login extends Component {
     switch (name) {
       case "username":
         formErrors.username =
-          value.length < 3 ? "minimum 3 characaters required" : "";
+          value.length < 3 ? "Necessários no mínimo 3 caracteres" : "";
         break;
       case "email":
         formErrors.email = emailRegex.test(value)
@@ -69,7 +69,7 @@ class Login extends Component {
         break;
       case "password":
         formErrors.password =
-          value.length < 6 ? "minimum 6 characaters required" : "";
+          value.length < 6 ? "ecessários no mínimo 6 caracteres" : "";
         break;
       default:
         break;
@@ -87,10 +87,10 @@ class Login extends Component {
           <h1>Login</h1>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="username">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">Nome do usuário</label>
               <input
                 className={formErrors.username.length > 0 ? "error" : null}
-                placeholder="username"
+                placeholder="Nome do usuário"
                 type="text"
                 name="username"
                 noValidate
@@ -115,10 +115,10 @@ class Login extends Component {
               )}
             </div>
             <div className="password">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Senha</label>
               <input
                 className={formErrors.password.length > 0 ? "error" : null}
-                placeholder="Password"
+                placeholder="Senha"
                 type="password"
                 name="password"
                 noValidate
@@ -130,7 +130,7 @@ class Login extends Component {
             </div>
             <div className="createAccount">
               <button type="submit">Login</button>
-              <small>Already Have an Account?</small>
+              <small>Já tenho conta?</small>
             </div>
           </form>
         </div>

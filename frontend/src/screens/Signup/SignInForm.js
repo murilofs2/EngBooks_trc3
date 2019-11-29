@@ -79,24 +79,24 @@ class SignIn extends Component {
     switch (name) {
       case "firstName":
         formErrors.firstName =
-          value.length < 3 ? "minimum 3 characaters required" : "";
+          value.length < 3 ? "Necessários no mínimo 3 caracteres" : "";
         break;
       case "lastName":
         formErrors.lastName =
-          value.length < 3 ? "minimum 3 characaters required" : "";
+          value.length < 3 ? "Necessários no mínimo 3 caracteres" : "";
         break;
         case "username":
         formErrors.username =
-          value.length < 3 ? "minimum 3 characaters required" : "";
+          value.length < 3 ? "Necessários no mínimo 3 caracteres" : "";
         break;
       case "email":
         formErrors.email = emailRegex.test(value)
           ? ""
-          : "invalid email address";
+          : "email inválido";
         break;
       case "password":
         formErrors.password =
-          value.length < 6 ? "minimum 6 characaters required" : "";
+          value.length < 6 ? "Necessários no mínimo 6 caracteres" : "";
         break;
       default:
         break;
@@ -114,10 +114,10 @@ class SignIn extends Component {
           <h1>Create Account</h1>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="firstName">
-              <label htmlFor="firstName">First Name</label>
+              <label htmlFor="firstName">Nome</label>
               <input
                 className={formErrors.firstName.length > 0 ? "error" : null}
-                placeholder="First Name"
+                placeholder="Nome"
                 type="text"
                 name="firstName"
                 noValidate
@@ -128,10 +128,10 @@ class SignIn extends Component {
               )}
             </div>
             <div className="lastName">
-              <label htmlFor="lastName">Last Name</label>
+              <label htmlFor="lastName">Sobrenome</label>
               <input
                 className={formErrors.lastName.length > 0 ? "error" : null}
-                placeholder="Last Name"
+                placeholder="Sobrenome"
                 type="text"
                 name="lastName"
                 noValidate
@@ -142,10 +142,10 @@ class SignIn extends Component {
               )}
             </div>
             <div className="username">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">Nome do usuário</label>
               <input
                 className={formErrors.username.length > 0 ? "error" : null}
-                placeholder="username"
+                placeholder="Nome do usuário"
                 type="text"
                 name="username"
                 noValidate
@@ -170,10 +170,10 @@ class SignIn extends Component {
               )}
             </div>
             <div className="password">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Senha</label>
               <input
                 className={formErrors.password.length > 0 ? "error" : null}
-                placeholder="Password"
+                placeholder="Senha"
                 type="password"
                 name="password"
                 noValidate
@@ -184,8 +184,8 @@ class SignIn extends Component {
               )}
             </div>
             <div className="createAccount">
-              <button type="submit">Create Account</button>
-              <small>Already Have an Account?</small>
+              <button type="submit">Criar conta</button>
+              <small>Já tenho conta?</small>
             </div>
           </form>
         </div>

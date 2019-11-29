@@ -106,7 +106,7 @@ class Books extends Component {
               <label htmlFor="titulo">Titulo</label>
               <input
                 className={formErrors.titulo.length > 0 ? "error" : null}
-                placeholder="titulo"
+                placeholder="Titulo"
                 type="text"
                 name="titulo"
                 noValidate
@@ -120,7 +120,7 @@ class Books extends Component {
               <label htmlFor="autor">Autor</label>
               <input
                 className={formErrors.autor.length > 0 ? "error" : null}
-                placeholder="autor"
+                placeholder="Autor"
                 type="text"
                 name="autor"
                 noValidate
@@ -134,7 +134,7 @@ class Books extends Component {
               <label htmlFor="assunto">Assunto</label>
               <input
                 className={formErrors.assunto.length > 0 ? "error" : null}
-                placeholder="assunto"
+                placeholder="Assunto"
                 type="text"
                 name="assunto"
                 noValidate
@@ -148,7 +148,7 @@ class Books extends Component {
               <label htmlFor="ano">Ano</label>
               <input
                 className={formErrors.ano.length > 0 ? "error" : null}
-                placeholder="ano"
+                placeholder="Ano"
                 type="number"
                 name="ano"
                 noValidate
@@ -162,7 +162,7 @@ class Books extends Component {
               <label htmlFor="idioma">Idioma</label>
               <input
                 className={formErrors.idioma.length > 0 ? "error" : null}
-                placeholder="idioma"
+                placeholder="Idioma"
                 type="text"
                 name="idioma"
                 noValidate
@@ -176,7 +176,7 @@ class Books extends Component {
               <label htmlFor="quantidade">Quantidade</label>
               <input
                 className={formErrors.quantidade.length > 0 ? "error" : null}
-                placeholder="quantidade"
+                placeholder="Quantidade"
                 type="number"
                 name="quantidade"
                 noValidate

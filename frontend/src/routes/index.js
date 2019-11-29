@@ -4,6 +4,7 @@ import HomeScreen from '../screens/Home';
 import LoginScreen from '../screens/Login'
 import SignupScreen from '../screens/Signup'
 import Header from '../components/Header';
+import CadastrarLivro from '../screens/AddBook.js'
 
 
 const AppRouter = () => (
@@ -14,6 +15,7 @@ const AppRouter = () => (
                 <Route path="/" exact component={ HomeScreen } />
                 <Route path="/login" component={ LoginScreen } />
                 <Route path="/signup" component={ SignupScreen } />
+                <Route path="/addBook" component={ CadastrarLivro } />
             </Switch>
         </div>
     </Router>

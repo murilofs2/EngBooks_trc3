@@ -10,11 +10,10 @@
 
   .wrapper-book {
     height: 100vh;
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: initial;
-    margin-left: 50px;
+    align-items: center;
     margin-top: 60px;
 
   }
@@ -225,4 +224,11 @@
 
   .search-box input {
     width: 300px;
+  }
+
+  img {
+    width: 70px;
+
+
+
   }

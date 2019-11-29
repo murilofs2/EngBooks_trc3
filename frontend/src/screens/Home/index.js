@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BookForm from "./BookForm";
 
 class HomeScreen extends Component {
     render() {
@@ -11,10 +10,9 @@ class HomeScreen extends Component {
                 <div class="search-box" >
                   <input type= "text" class=" search-txt" placeholder ="Pesquisar Titulo, Autor" />
                   <button class="search-btn">Pesquisar</button>  
-                </div>
+                </div> 
               </div>
-            </div>  
-            
+            </div>    
           </div>
         )
     }
